@@ -47,4 +47,8 @@ public class MemberCache {
 	public void invalidateCache() {
 		cache.clear();
 	}
+
+	public Member findMemberBy(long id) {
+		throw new UnsupportedOperationException("not implemented yet");
+	}
 }

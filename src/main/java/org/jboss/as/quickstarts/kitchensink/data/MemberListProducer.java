@@ -30,8 +30,8 @@ import org.jboss.as.quickstarts.kitchensink.model.Member;
 @RequestScoped
 public class MemberListProducer {
 
-    @Inject
-    private MemberRepository memberRepository;
+	@Inject
+	private MemberCache cache;
 
     private List<Member> members;
 
@@ -49,6 +49,6 @@ public class MemberListProducer {
 
     @PostConstruct
     public void retrieveAllMembersOrderedByName() {
-        members = memberRepository.findAllOrderedByName();
+        members = cache.loadFromCache();
     }
 }
